@@ -56,7 +56,7 @@ func main() {
 	makestaticDir(livedir)
 	makestaticDir(identify)
 	
-	fmt.Println("½«ÔËĞĞÔÚ£º"+adomin)
+	fmt.Println("å°†è¿è¡Œåœ¨ï¼š"+adomin)
 	err := http.ListenAndServe(adomin, nil)
 	if err != nil {
 		log.Fatal("ListenAndServe:", err)
@@ -74,7 +74,7 @@ func help(w http.ResponseWriter, r *http.Request){
 
 func vcatools_upload(w http.ResponseWriter, r *http.Request){
 	
-	// 1.±íµ¥ÖĞÔö¼Óenctype="multipart/form-data"
+	// 1.è¡¨å•ä¸­å¢åŠ enctype="multipart/form-data"
 	//fmt.Println("method:",r.Method)
 	
 	if r.Method == "GET" {
@@ -90,14 +90,14 @@ func vcatools_upload(w http.ResponseWriter, r *http.Request){
 		//t.Execute(w,token)
 	} else {
 		
-		// 2.·şÎñ¶Ëµ÷ÓÃ r.ParseMultipartForm ,°ÑÉÏ´«µÄÎÄ¼ş´æ´¢ÔÚÄÚ´æºÍÁÙÊ±ÎÄ¼şÖĞ ÀïÃæµÄ²ÎÊı±íÊ¾ maxMemory £¬
+		// 2.æœåŠ¡ç«¯è°ƒç”¨ r.ParseMultipartForm ,æŠŠä¸Šä¼ çš„æ–‡ä»¶å­˜å‚¨åœ¨å†…å­˜å’Œä¸´æ—¶æ–‡ä»¶ä¸­ é‡Œé¢çš„å‚æ•°è¡¨ç¤º maxMemory ï¼Œ
 		r.ParseMultipartForm(32 << 20)
-		//ÅĞ¶Ï keyÊÇ·ñÕıÈ·
+		//åˆ¤æ–­ keyæ˜¯å¦æ­£ç¡®
 		if r.Form.Get("publickey")=="vca"&&r.Form.Get("secretkey")=="vca666"{
 			//fmt.Println("publickey:", r.Form.Get("publickey"))
 			//fmt.Println("secretkey:", r.Form.Get("secretkey"))
 		}else{
-			result := RelCode{Code:408, Msg:"ÄúÌîĞ´µÄÕıÈ·µÄkey"}
+			result := RelCode{Code:408, Msg:"æ‚¨å¡«å†™çš„æ­£ç¡®çš„key"}
 			w.Header().Set("content-type", "application/json")
 			b,err := json.Marshal(result)
 			if err !=nil{
@@ -107,7 +107,7 @@ func vcatools_upload(w http.ResponseWriter, r *http.Request){
 			return
 		}
 		
-		// 3. Ê¹ÓÃ r.FormFile »ñÈ¡ÎÄ¼ş¾ä±ú£¬È»ºó¶ÔÎÄ¼ş½øĞĞ´æ´¢µÈ´¦Àí¡£
+		// 3. ä½¿ç”¨ r.FormFile è·å–æ–‡ä»¶å¥æŸ„ï¼Œç„¶åå¯¹æ–‡ä»¶è¿›è¡Œå­˜å‚¨ç­‰å¤„ç†ã€‚
 		file,handler,err := r.FormFile("uploadfile")
 		
 		if err != nil {
@@ -116,7 +116,7 @@ func vcatools_upload(w http.ResponseWriter, r *http.Request){
 			w.Header().Set("content-type", "application/json")
 			
 			
-			result := RelCode{Code:409, Msg:"ÄúÌîĞ´µÄ±íµ¥²ÎÊı´íÎó"}
+			result := RelCode{Code:409, Msg:"æ‚¨å¡«å†™çš„è¡¨å•å‚æ•°é”™è¯¯"}
 			
 			b,err := json.Marshal(result)
 			if err !=nil{
@@ -132,7 +132,7 @@ func vcatools_upload(w http.ResponseWriter, r *http.Request){
 		fmt.Printf("UUIDv4: %s\n", u1.String())
 		extent_type := handler.Filename[strings.LastIndex(handler.Filename, "."):]
 		
-		//²úÉúĞÂµÄÍ¼Æ¬Ãû³Æ
+		//äº§ç”Ÿæ–°çš„å›¾ç‰‡åç§°
 		new_Filename := u1.String()+extent_type
 		
 		//println(new_Filename)
@@ -163,7 +163,7 @@ func vcatools_upload(w http.ResponseWriter, r *http.Request){
 
 func dev_upload(w http.ResponseWriter, r *http.Request){
 	
-	// 1.±íµ¥ÖĞÔö¼Óenctype="multipart/form-data"
+	// 1.è¡¨å•ä¸­å¢åŠ enctype="multipart/form-data"
 	//fmt.Println("method:",r.Method)
 	
 	if r.Method == "GET" {
@@ -179,14 +179,14 @@ func dev_upload(w http.ResponseWriter, r *http.Request){
 		//t.Execute(w,token)
 	} else {
 		
-		// 2.·şÎñ¶Ëµ÷ÓÃ r.ParseMultipartForm ,°ÑÉÏ´«µÄÎÄ¼ş´æ´¢ÔÚÄÚ´æºÍÁÙÊ±ÎÄ¼şÖĞ ÀïÃæµÄ²ÎÊı±íÊ¾ maxMemory £¬
+		// 2.æœåŠ¡ç«¯è°ƒç”¨ r.ParseMultipartForm ,æŠŠä¸Šä¼ çš„æ–‡ä»¶å­˜å‚¨åœ¨å†…å­˜å’Œä¸´æ—¶æ–‡ä»¶ä¸­ é‡Œé¢çš„å‚æ•°è¡¨ç¤º maxMemory ï¼Œ
 		r.ParseMultipartForm(32 << 20)
-		//ÅĞ¶Ï keyÊÇ·ñÕıÈ·
+		//åˆ¤æ–­ keyæ˜¯å¦æ­£ç¡®
 		if r.Form.Get("publickey")=="vca"&&r.Form.Get("secretkey")=="vca666"{
 			fmt.Println("publickey:", r.Form.Get("publickey"))
 			fmt.Println("secretkey:", r.Form.Get("secretkey"))
 		}else{
-			result := RelCode{Code:408, Msg:"ÄúÌîĞ´µÄÕıÈ·µÄkey"}
+			result := RelCode{Code:408, Msg:"æ‚¨å¡«å†™çš„æ­£ç¡®çš„key"}
 			w.Header().Set("content-type", "application/json")
 			b,err := json.Marshal(result)
 			if err !=nil{
@@ -196,7 +196,7 @@ func dev_upload(w http.ResponseWriter, r *http.Request){
 			return
 		}
 		
-		// 3. Ê¹ÓÃ r.FormFile »ñÈ¡ÎÄ¼ş¾ä±ú£¬È»ºó¶ÔÎÄ¼ş½øĞĞ´æ´¢µÈ´¦Àí¡£
+		// 3. ä½¿ç”¨ r.FormFile è·å–æ–‡ä»¶å¥æŸ„ï¼Œç„¶åå¯¹æ–‡ä»¶è¿›è¡Œå­˜å‚¨ç­‰å¤„ç†ã€‚
 		file,handler,err := r.FormFile("uploadfile")
 		
 		if err != nil {
@@ -205,7 +205,7 @@ func dev_upload(w http.ResponseWriter, r *http.Request){
 			w.Header().Set("content-type", "application/json")
 			
 			
-			result := RelCode{Code:409, Msg:"ÄúÌîĞ´µÄ±íµ¥²ÎÊı´íÎó"}
+			result := RelCode{Code:409, Msg:"æ‚¨å¡«å†™çš„è¡¨å•å‚æ•°é”™è¯¯"}
 			
 			b,err := json.Marshal(result)
 			if err !=nil{
@@ -221,7 +221,7 @@ func dev_upload(w http.ResponseWriter, r *http.Request){
 		fmt.Printf("UUIDv4: %s\n", u1.String())
 		extent_type := handler.Filename[strings.LastIndex(handler.Filename, "."):]
 		
-		//²úÉúĞÂµÄÍ¼Æ¬Ãû³Æ
+		//äº§ç”Ÿæ–°çš„å›¾ç‰‡åç§°
 		new_Filename := u1.String()+extent_type
 		
 		//println(new_Filename)
@@ -254,7 +254,7 @@ func dev_upload(w http.ResponseWriter, r *http.Request){
 
 func live_upload(w http.ResponseWriter, r *http.Request){
 	
-	// 1.±íµ¥ÖĞÔö¼Óenctype="multipart/form-data"
+	// 1.è¡¨å•ä¸­å¢åŠ enctype="multipart/form-data"
 	fmt.Println("method:",r.Method)
 	
 	if r.Method == "GET" {
@@ -270,14 +270,14 @@ func live_upload(w http.ResponseWriter, r *http.Request){
 		//t.Execute(w,token)
 	} else {
 		
-		// 2.·şÎñ¶Ëµ÷ÓÃ r.ParseMultipartForm ,°ÑÉÏ´«µÄÎÄ¼ş´æ´¢ÔÚÄÚ´æºÍÁÙÊ±ÎÄ¼şÖĞ ÀïÃæµÄ²ÎÊı±íÊ¾ maxMemory £¬
+		// 2.æœåŠ¡ç«¯è°ƒç”¨ r.ParseMultipartForm ,æŠŠä¸Šä¼ çš„æ–‡ä»¶å­˜å‚¨åœ¨å†…å­˜å’Œä¸´æ—¶æ–‡ä»¶ä¸­ é‡Œé¢çš„å‚æ•°è¡¨ç¤º maxMemory ï¼Œ
 		r.ParseMultipartForm(32 << 20)
-		//ÅĞ¶Ï keyÊÇ·ñÕıÈ·
+		//åˆ¤æ–­ keyæ˜¯å¦æ­£ç¡®
 		if r.Form.Get("publickey")=="vca"&&r.Form.Get("secretkey")=="vca666"{
 			fmt.Println("publickey:", r.Form.Get("publickey"))
 			fmt.Println("secretkey:", r.Form.Get("secretkey"))
 		}else{
-			result := RelCode{Code:408, Msg:"ÄúÌîĞ´µÄÕıÈ·µÄkey"}
+			result := RelCode{Code:408, Msg:"æ‚¨å¡«å†™çš„æ­£ç¡®çš„key"}
 			w.Header().Set("content-type", "application/json")
 			b,err := json.Marshal(result)
 			if err !=nil{
@@ -287,7 +287,7 @@ func live_upload(w http.ResponseWriter, r *http.Request){
 			return
 		}
 		
-		// 3. Ê¹ÓÃ r.FormFile »ñÈ¡ÎÄ¼ş¾ä±ú£¬È»ºó¶ÔÎÄ¼ş½øĞĞ´æ´¢µÈ´¦Àí¡£
+		// 3. ä½¿ç”¨ r.FormFile è·å–æ–‡ä»¶å¥æŸ„ï¼Œç„¶åå¯¹æ–‡ä»¶è¿›è¡Œå­˜å‚¨ç­‰å¤„ç†ã€‚
 		file,handler,err := r.FormFile("uploadfile")
 		
 		if err != nil {
@@ -296,7 +296,7 @@ func live_upload(w http.ResponseWriter, r *http.Request){
 			w.Header().Set("content-type", "application/json")
 			
 			
-			result := RelCode{Code:409, Msg:"ÄúÌîĞ´µÄ±íµ¥²ÎÊı´íÎó"}
+			result := RelCode{Code:409, Msg:"æ‚¨å¡«å†™çš„è¡¨å•å‚æ•°é”™è¯¯"}
 			
 			b,err := json.Marshal(result)
 			if err !=nil{
@@ -312,7 +312,7 @@ func live_upload(w http.ResponseWriter, r *http.Request){
 		fmt.Printf("UUIDv4: %s\n", u1.String())
 		extent_type := handler.Filename[strings.LastIndex(handler.Filename, "."):]
 		
-		//²úÉúĞÂµÄÍ¼Æ¬Ãû³Æ
+		//äº§ç”Ÿæ–°çš„å›¾ç‰‡åç§°
 		new_Filename := u1.String()+extent_type
 		
 		
@@ -364,12 +364,12 @@ func makestaticDir( dir string){
 		log.Fatal("static PathExists:", exitsErr)
 	}
 	if isexits == false {
-		err := os.MkdirAll(*realPath + dir, os.ModePerm)  //ÔÚµ±Ç°Ä¿Â¼ÏÂÉú³ÉmdÄ¿Â¼
+		err := os.MkdirAll(*realPath + dir, os.ModePerm)  //åœ¨å½“å‰ç›®å½•ä¸‹ç”Ÿæˆmdç›®å½•
 		if err != nil {
 			log.Fatal(err)
 			return
 		}
-		fmt.Println("´´½¨Ä¿Â¼" + *realPath + dir + "³É¹¦")
+		fmt.Println("åˆ›å»ºç›®å½•" + *realPath + dir + "æˆåŠŸ")
 	}
 }
 
@@ -440,7 +440,7 @@ func staticResource(w http.ResponseWriter, r *http.Request) {
 	} else {
 		fmt.Printf("isexits %v\n",isexits)
 		
-		io.WriteString(w,"×ÊÔ´Â·¾¶²»´æÔÚ")
+		io.WriteString(w,"èµ„æºè·¯å¾„ä¸å­˜åœ¨")
 	}
 	
 	

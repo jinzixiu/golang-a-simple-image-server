@@ -1,0 +1,35 @@
+<component name="libraryTable">
+  <library name="GOPATH &lt;golang-a-simple-image-server&gt;">
+    <CLASSES>
+      <root url="file://D:/go_pro/src/wuwenblog" />
+      <root url="file://D:/go_pro/src/blog" />
+      <root url="file://D:/go_pro/src/a22" />
+      <root url="file://$PROJECT_DIR$/../../src/333" />
+      <root url="file://D:/go_pro/src/.idea" />
+      <root url="file://D:/go_pro/src/go_study" />
+      <root url="file://$PROJECT_DIR$/../../src/include" />
+      <root url="file://D:/go_pro/src/beegoPro" />
+      <root url="file://D:/go_pro/src/github.com" />
+      <root url="file://D:/go_pro/src/blogapi" />
+      <root url="file://$PROJECT_DIR$/../../src/aaaaa" />
+      <root url="file://$PROJECT_DIR$/../../src/beegoDemo" />
+    </CLASSES>
+    <SOURCES>
+      <root url="file://D:/go_pro/src/wuwenblog" />
+      <root url="file://D:/go_pro/src/blog" />
+      <root url="file://D:/go_pro/src/a22" />
+      <root url="file://$PROJECT_DIR$/../../src/333" />
+      <root url="file://D:/go_pro/src/.idea" />
+      <root url="file://D:/go_pro/src/go_study" />
+      <root url="file://$PROJECT_DIR$/../../src/include" />
+      <root url="file://D:/go_pro/src/beegoPro" />
+      <root url="file://D:/go_pro/src/github.com" />
+      <root url="file://D:/go_pro/src/blogapi" />
+      <root url="file://$PROJECT_DIR$/../../src/aaaaa" />
+      <root url="file://$PROJECT_DIR$/../../src/beegoDemo" />
+    </SOURCES>
+    <excluded>
+      <root url="file://$PROJECT_DIR$" />
+    </excluded>
+  </library>
+</component>
