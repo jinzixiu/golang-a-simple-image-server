@@ -1,9 +1,9 @@
 ## 一个简单的 图片服务器服务
 
-###1.编译
+### 1.编译
 `go build imageServer.go`
 
-###2.执行
+### 2.执行
 `nohup ./imageServer  1> server.out 2> server.err`
 
 执行会自动产生目录
